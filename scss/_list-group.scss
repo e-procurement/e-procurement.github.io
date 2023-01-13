@@ -1,0 +1,126 @@
+$LIST-BORDER-OPA: .4;
+$LIST-BG-OPA: .3;
+
+@mixin border-radius {
+    &:first-child {
+        border-top-left-radius:  $BORDER-SM;
+        border-top-right-radius: $BORDER-SM;
+    }
+    &:last-child {
+        border-bottom-left-radius:  $BORDER-SM;
+        border-bottom-right-radius: $BORDER-SM;
+    }
+}
+
+@mixin base-list ($color) {
+	color : $color;
+	border: 1px solid rgba($color, $LIST-BORDER-OPA);
+    background-color: rgba($color, $LIST-BG-OPA);
+    @if $color ==$dark {
+        color: var(--darkColor);
+    }
+    @else if $color ==$gray {
+        color: darken($color, 20%);
+    }
+}
+@mixin list-action-hover($color) {
+    &.list-group-item-action {
+        &:not(.active):not(.disabled):not(button) {
+            &:hover {
+                background-color : $color;
+                color: var(--lightColor);
+                @if $color ==$dark {
+                    color: lighten($color, 20%);
+                }
+            }
+        }
+    }
+}
+
+.list-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+	overflow: hidden;
+    padding-left:0px;
+    margin-right: auto;
+    color: var(--darkColor);
+    .active {
+        background-color: $primary;
+        color: var(--lightColor);
+    }
+    .disabled {
+        $colortest: var(--darkColor);
+        color : lighten($dark, 40%);
+        pointer-events: none;
+    }
+	&:not(.list-group-flush) {
+        .list-group-item {
+            border: 1px solid var(--darkColor);
+            border-bottom: 0px;
+            &:last-child {
+                border: 1px solid var(--darkColor);
+            }
+            padding: 1rem 1.25rem;
+            @include border-radius;
+            @include list-action-hover($primary);
+            @each $color, $value in $default-colors-lists {
+                &.list-group-item-#{$color} {
+                    @include base-list($value);
+                    @include list-action-hover($value);
+                }
+            }
+            &.list-group-item-light { 
+                @include base-list($gray);
+                @include list-action-hover($gray);
+                border: 1px solid $gray;
+                background-color: $white;
+            }
+            &.list-group-item-dark {
+                @include base-list($dark);
+                @include list-action-hover($dark);
+            }
+        }
+    }
+
+    button {
+        background-color:transparent;
+        color: var(--darkColor);
+        text-align: left;
+        font-size: medium; 
+        @include border-radius;
+        &:focus {
+            background-color : $primary;
+            color : var(--lightColor);
+            outline: 0px;
+        }
+        &:not(.active) {
+            &:hover:enabled{
+                background-color : $primary;
+                color : var(--lightColor);
+            }
+        }
+        &:disabled {
+            color : lighten($dark, 40%);
+        }
+    }
+
+    a{
+        &:focus {
+            outline: 0;
+        }
+        &:not(.disabled):link {
+            color: var(--darkColor);
+        }
+        &.active:link {
+            color: var(--lightColor);
+        }
+    }
+}
+
+.list-group-flush { 
+	.list-group-item {
+		border-bottom: 1px solid var(--darkColor);
+		padding: 1rem 1.25rem;
+	}
+}

@@ -1,0 +1,138 @@
+:root {
+	--whiteColor: #{$white};
+	--blackColor: #{$black};
+	--darkColor: #{$dark};
+	--lightColor: #{$light};
+	--successColor: #{$success};
+	--primaryColor: #{$primary};
+	--secondaryColor: #{$secondary};
+	--weekColor: #{$week};
+	--warningColor: #{$warning};
+	--dangerColor: #{$danger};
+	--grayColor: #{$gray};
+	--infoColor: #{$info};
+	--brownColor: #{$brown};
+	
+	--textColor: #{$black};
+	--textNightColor: #{$white};
+	--backgroundColor: #{$bg-color};
+	--backgroundNightColor: #{$dark};
+	--hrBackgroundColor: #{$hr-bg-color};
+
+	--noticeBoxShadowColor: #cfcfcf;
+	// --btnBgColor: #{$week};
+}
+
+html {
+	background-color: var(--backgroundColor);
+	color: var(--textColor);
+	&.transition {
+	  transition: $darkmode-transition;
+	  transition-delay: $darkmode-delay;
+	}
+}
+html[data-theme='dark'] {
+	--lightColor: #{$dark};
+	--darkColor: #{$light};
+	
+	--textColor: #{$white};
+	--textNightColor: #{$black};
+	--backgroundColor: #{$nightBG};
+	--backgroundNightColor: #{$white};
+	--hrBackgroundColor: #{$nightBG};
+
+	--noticeBoxShadowColor: #131212;
+	// --btnBgColor: #{$secondary};
+}
+
+::selection {
+   background: var(--primaryColor);
+   color: #fff;
+}
+::-moz-selection {
+   background: var(--primaryColor);
+   color: #fff;
+}
+
+body {
+	margin: 0px;
+	font-family: $COMMON-FONT-FAMILY;
+	line-height: $BASE-LINE-HEIGHT;
+}
+
+*, ::after, ::before {
+	box-sizing: border-box;
+}
+
+
+/**
+ * H tag
+ */
+$H-WEIGHT: 500;
+$H-MARGIN-BOTTOM: .5rem;
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $H-WEIGHT;
+	margin-top: 0px;
+	margin-bottom: $H-MARGIN-BOTTOM;
+	line-height: $H-LINE-HEIGHT;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+
+/**
+ * A tag
+ */
+a {
+	color: $link-color;
+	&:not(.a-deco) {
+		text-decoration: none;
+	}
+}
+
+
+/**
+ * P tag
+ */
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/**
+ * b, strong
+ */
+b, strong {
+    font-weight: bolder;
+}
+
+/**
+ * pre
+ */
+pre {
+	margin-top: 0px;
+}
+
+/**
+ * button
+ */
+button:not(:disabled) {
+	cursor: pointer;
+}
+
+/**
+ * blockquote
+ */
+blockquote { margin: 0 0 1rem; }
+
+/**
+ * svg
+ */
+svg {
+	overflow: hidden;
+	vertical-align: middle;
+}

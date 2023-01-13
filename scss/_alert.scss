@@ -1,0 +1,61 @@
+// Alert
+$ALERT-CARD-BORDER-OPA: .5;
+$ALERT-HR-OPA: .4;
+$ALERT-BG-OPA: .3;
+
+@mixin base-alert ($color) {
+	color : $color;
+	border: 1px solid rgba($color, $ALERT-CARD-BORDER-OPA);
+	background-color: rgba($color, $ALERT-BG-OPA);
+	& > hr {
+		border: thin solid rgba($color, $ALERT-HR-OPA);
+	}
+	& a,
+	& .alert-link {
+		@if $color == $dark {
+			color: var(--lightcolor);
+		}
+		@else {
+			color: darken($color, 20%);
+		}
+		font-weight: bold ;
+	}
+	
+	@if $color == $dark {
+        color: var(--darkColor)
+    }
+    @else if $color == $gray {
+        color: darken($color, 30%);
+    }
+}
+
+.alert {
+    padding: 1rem;
+    margin: auto;
+    box-sizing: content-box;
+    word-break: break-all;
+}
+
+@each $color, $value in $colors-lists {
+	.alert-#{$color} {
+		@include base-alert($value);
+	}
+}
+/**
+ *	.alert-light
+ */
+.alert-light {
+	@include base-alert($gray);
+	border: 1px solid $gray;
+	background-color: $white;
+} 
+
+/**
+ *	.alert-heading
+ *	@desc: Header of alert
+ */
+.alert-header {
+	margin: auto;
+	font-size: 1.875rem;
+}
+

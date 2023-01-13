@@ -1,0 +1,36 @@
+.topUI {
+    background-color: #b897ff;
+    margin-top: 1%;
+}
+
+.mainContent {
+    margin-left: 34%;
+    padding: 10%;
+}
+.search-mainContent{
+    margin-left: 28%;
+    padding: 10%;
+}
+
+.bottomUI {
+    padding-bottom: 1%;
+    padding-left: 5%;
+    background-color: gray;
+}
+
+.list-group {
+    color:peru;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    overflow: hidden;
+    padding-left: 0;
+    position: relative;
+}
+
+.list-group-item {
+    background-color: peru;
+    border: none!important;
+    border-radius: 0.5rem!important;
+    color: #000;
+}

@@ -1,0 +1,64 @@
+/**
+ * 	Card
+ */
+.card {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+	border: 1px solid $gray;
+	border-radius: $BORDER-SM;
+	overflow: hidden;	
+}
+
+
+/**
+ * 	Card Title Image
+ */
+.card-img-top {
+	width: 100%;
+}
+
+/**
+ * 	Header, title, subtitle of Card
+ */
+.card-header {
+	padding: 1rem 1.25rem;
+	border-bottom: 1px solid $gray;
+}
+/**
+ * 	Body, Main, Content of Card
+ */
+.card-body {
+	padding: 1.25rem;
+	.card-text {
+	}
+}
+/**
+ * 	Footer, info, buttons of Card
+ */
+.card-footer {
+	padding: 1rem 1.25rem;
+	border-top: 1px solid $gray;
+}
+
+.card-title {
+
+}
+.card-subtitle {
+
+}
+.card-text {
+	
+}
+
+/**
+ * 	Link(a) of Card
+ */
+.card-link {
+	&:hover {
+		color : darken($link-color, 10%);
+	}
+	+ .card-link {
+		margin-left: 1.25rem;
+	}
+}

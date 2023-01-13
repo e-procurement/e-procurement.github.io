@@ -1,0 +1,112 @@
+/**
+ * 	Base of Button
+ */
+.btn {
+    display: inline-block;
+    padding: .375rem .75rem;
+    border: 0px;
+    border-radius: $BORDER-XS;
+    font-size: 1rem;
+    font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+	cursor: pointer;
+	line-height: 1.5;
+	vertical-align: middle;
+    background-color : $week;
+	&.disabled,
+	&:disabled {
+		opacity: .7;
+		cursor: default;
+	}
+	&:not(:disabled):not(.disabled):hover {
+        background-color : $btn-hover-color;
+    }
+    &.btn-transparent, &.bg-transparent {
+        background-color: transparent !important;
+        color: var(--textColor);
+    }
+}
+
+/**
+ * 	SM Button size
+ */
+.btn-sm {
+	padding: 8px 8px;
+	font-size: 12px;
+}
+
+/**
+ * 	LG Button size
+ */
+.btn-lg {
+	padding: 20px 40px;
+}
+
+/**
+ * 	W-100 Button size
+ */
+.btn-block {
+	min-width: 100%;
+}
+
+/**
+ * 	Button hover event & border setting (for btn-#)
+ */
+ @mixin hover-darken ($value) {
+    &:not(:disabled):not(.disabled):hover {
+        background-color : darken($value, 10%);
+        border-color : darken($value, 10%);
+    }
+}
+
+/**
+ * 	Button hover event & border setting (for btn-outline-#)
+ */
+ @mixin hover-outline-darken ($value) {
+	&:not(:disabled):not(.disabled):hover {
+        color: $white;
+        background-color: $value;
+    }
+}
+
+/**
+ * 	Button focus event & border setting (for btn-#, btn-outline-#)
+ */
+@mixin focus-all-darken ($value) {
+	&:not(:disabled):not(.disabled):focus {
+		outline: none;
+		box-shadow: 0 0 0 1px darken($value, 10%);
+    }
+}
+
+/**
+ * Button Colors
+ */
+@each $color, $value in $colors-lists {
+    .btn-#{$color} {
+        color: $white;
+        background-color: $value;
+        @include hover-darken($value);
+        @include focus-all-darken($value);
+    }
+    .btn-outline-#{$color} {
+        color: $value;
+        background-color: transparent;
+        border: 1px solid $value;
+        @include hover-outline-darken($value);
+        @include focus-all-darken($value);
+    }
+}
+
+/**
+ * 	Light Button
+ */
+.btn-light {
+    color: $dark;
+}
+.btn-outline-light {
+    color: $dark;
+}

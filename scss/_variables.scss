@@ -1,0 +1,92 @@
+// Grid
+$MAX-COLUMNS: 12;
+
+// Responsive breakpoints
+$SM-WIDTH: 576px;
+$MD-WIDTH: 768px;
+$LG-WIDTH: 992px;
+$XL-WIDTH: 1200px;
+
+$container-padding: 1rem;
+$container-sm-width: 544px;
+$container-md-width: 736px;
+$container-width: 960px;
+$container-xl-width: 1168px;
+$column-padding: 1rem;
+
+// Color
+$white: white;
+$black: black; 
+$primary: #b897ff;
+$secondary: #666666;
+$week: #eeeeee; 
+$success: #17c37b;
+$warning: #fab025;
+$danger: #f5584e;
+$info: #43C6DB;
+$dark: #1b1b1b;
+$light: #f3f2f5;
+$brown: #ba7967;
+$gray: gainsboro;
+$link-color: #2d8aed;
+$bg-color: white;     // #fff0;
+$hr-bg-color: #fff;		// It should not have a transparency value.
+$btn-hover-color: #dddddd;
+
+// Night
+$nightBG: #121212;
+$nightPrimary: #6E5B99;
+
+// Colors Lists
+$default-colors-lists: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+  "info":       $info,
+  "brown":      $brown
+) !default;
+$colors-lists: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+  "info":       $info,
+  "dark":       $dark,
+  "light":      $light,
+  "brown":      $brown
+) !default;
+
+// LINE-HEIGHT
+$BASE-LINE-HEIGHT: 1.5;
+$H-LINE-HEIGHT: 1.2;
+
+// Z-index
+$Z-fixed: 1001;
+$Z-notice-box: 1002;
+$Z-modal: 1003;
+$indet-unshow: -9999px;
+
+// Border Radius
+$BORDER-XS: .25rem;
+$BORDER-SM: .5rem;
+$BORDER-MD: 1rem;
+$BORDER-PILL: 50rem;
+$BORDER-ROUNDED: 50%;
+
+// COLLAPSE-SPEED
+$COLLAPSE-SPEED: 0.25s;
+
+// NAV
+$NAV-LINK-ACTIVE-OPA: 1;
+$NAV-LINK-BASIC-OPA: .7;
+$NAV-LINK-DISABLED-OPA: .4;
+
+// darkmode transition
+$darkmode-transition: ease 100ms !important;
+$darkmode-delay: 0s !important;
+
+// font-family
+$COMMON-FONT-FAMILY: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";

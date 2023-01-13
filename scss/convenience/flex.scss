@@ -1,0 +1,131 @@
+/**
+ * Flex-Direction
+ */
+.f-column {
+	flex-direction: column !important;
+}
+.f-row {
+	flex-direction: row !important;
+}
+.f-column-reverse {
+	flex-direction: column-reverse !important;
+}
+.f-row-reverse {
+	flex-direction: row-reverse !important;
+}
+
+/**
+ * Flex-Fill
+ */
+.f-fill {
+	flex: 1 1 auto !important;
+}
+
+/**
+ * Flex-Wrap
+ */
+.f-wrap {
+	flex-wrap: wrap !important;
+}
+.f-nowrap {
+	flex-wrap: nowrap !important;
+}
+.f-wrap-reverse {
+	flex-wrap: wrap-reverse !important;
+}
+
+// Flex-Responsive
+@mixin change-to-row ($responsive-width) {
+	@media (max-width: $responsive-width) {
+		flex-direction: row !important;
+	}
+}
+@mixin change-to-column ($responsive-width) {
+	@media (max-width: $responsive-width) {
+		flex-direction: column !important;
+	}
+}
+.f-row-sm {	@include change-to-row($SM-WIDTH); }
+.f-row-md {	@include change-to-row($MD-WIDTH); }
+.f-row-lg {	@include change-to-row($LG-WIDTH); }
+.f-row-xl {	@include change-to-row($XL-WIDTH); }
+.f-column-sm {	@include change-to-column($SM-WIDTH); }
+.f-column-md {	@include change-to-column($MD-WIDTH); }
+.f-column-lg {	@include change-to-column($LG-WIDTH); }
+.f-column-xl {	@include change-to-column($XL-WIDTH); }
+
+/**
+ * Justify
+ */
+.justify-start {
+	justify-content: flex-start !important;
+}
+.justify-end {
+	justify-content: flex-end !important;
+}
+.justify-center {
+	justify-content: center !important;
+}
+.justify-between {
+	justify-content: space-between !important;
+}
+.justify-around {
+	justify-content: space-around !important;
+}
+
+/**
+ * Item-Align
+ */
+.align-items-stretch {
+	align-items: stretch !important;
+}
+.align-items-center {
+	align-items: center !important;
+}
+.align-items-start {
+	align-items: flex-start !important;
+}
+.align-items-end {
+	align-items: flex-end !important;
+}
+.align-items-baseline {
+	align-items: baseline !important;
+}
+
+/**
+ * Content-Align
+ */
+.align-content-stretch {
+	align-content: stretch !important;
+}
+.align-content-center {
+	align-content: center !important;
+}
+.align-content-start {
+	align-content: flex-start !important;
+}
+.align-content-end {
+	align-content: flex-end !important;
+}
+.align-content-space-around {
+	align-content: space-around !important;
+}
+
+/**
+ * Self-Align
+ */
+.align-self-stretch {
+	align-self: stretch !important;
+}
+.align-self-center {
+	align-self: center !important;
+}
+.align-self-start {
+	align-self: flex-start !important;
+}
+.align-self-end {
+	align-self: flex-end !important;
+}
+.align-self-baseline {
+	align-self: baseline !important;
+}
