@@ -25,7 +25,6 @@ function login(){
         {
             if(obj[i]['id'] == id.value)
             {
-                alert(obj[i]['name']);
                 var cast = {
                     "name" : obj[i]['name'],
                     "department" : obj[i]['department'],
