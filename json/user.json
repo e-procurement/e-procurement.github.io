@@ -1,0 +1,14 @@
+[
+    {
+       "id":"mindol",
+       "password":"1234",
+       "name":"심민석",
+       "department":"컴퓨터공학과"
+    },
+    {
+        "id":"jongu",
+        "password":"1234",
+        "name":"박종현",
+        "department":"컴퓨터공학과"
+     }
+ ]

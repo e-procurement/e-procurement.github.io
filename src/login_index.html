@@ -1,29 +1,44 @@
-<!DOCTYPE html5>
+<!-- <!DOCTYPE html5> -->
 <html>
     <head>
         <meta charset="utf-8">
         <title>DJU전자조달시스템</title>
-        <style type="text/css"></style>
         <link href="../dist/css/yuri.css" rel="stylesheet">
         <link href="../css/_css.css" rel="stylesheet">
-        <script src="../js/user.js"></script>
+        <script type="text/javascript">
+            var info = JSON.parse(localStorage.getItem("cast"));
+            var loginmng;
+            var name;
+            var department;
+            if(info['loginmng'] == false)
+            {
+                loginmng = false;
+                name = "";
+                department = "";
+            }
+            else
+            {
+                loginmng = true;
+                name = info['name'];
+                department = info['department'];
+            }
+            let x = document.getElementById("hi_name")[0];
+            x.innerText="Javascript"; 
+        </script>
     </head>
     <body>
         <div class="navbar navbar-primary none-dark-color">
             <a href="../index.html"><img src="../resources/logo.png" alt="" style="width: 50%;"></a>
-            <a href="login.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;">조회</a>
-            <a href="login.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;">등록</a>
-            <a href="login.html" style="height: 5%; margin-left: 19%; color: black;">로그인</a>
+            <a href="search.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;">조회</a>
+            <a href="insert.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;">등록</a>
+            <p id="hi_name" style="margin-left: 10%; color: black;">반갑습니다</p>
+            <a href="../index.html" style="height: 5%; margin-left: 10%; color: black;">로그아웃</a>
         </div>
 
         <nav class="navbar navbar-dark">
             <div class="mainContent">
-                <div class="alert alert-warning">
-                    <input type="text" class="form-control" id="login_id"placeholder="ID"><br>
-                    <input type="password" class="form-control" id="login_pw" placeholder="PASSWORD"><br><br>
-                    <button type="button" class="btn btn-warning" id="login" style="margin-left: 10%;" onclick="login();">로그인</button>
-                    <a href="register.html"><button type="button" class="btn btn-warning" style="margin-left: 10%;">회원가입</button></a>
-                </div>
+                <a href="search.html"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">조회</button></a>
+                <a href="insert.html"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">등록</button></a>
             </div>
         </nav>
 
