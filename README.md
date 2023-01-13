@@ -9,6 +9,6 @@ CEO : 김신완<br>
 기술지원팀장 : 김다혜<br>
 연구팀장 : 강수아
 -------------------
-[링크](e-procurement.github.io)
+[링크](https://e-procurement.github.io/)
 
 템플릿 : [yuristrap](https://yuristrap.github.io/)
