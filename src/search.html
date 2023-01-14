@@ -6,7 +6,7 @@
         <style type="text/css"></style>
         <link href="../dist/css/yuri.css" rel="stylesheet">
         <link href="../css/_css.css" rel="stylesheet">
-        <script src="../js/user.js"></script>
+        <script src="../js/product.js"></script>
         <script type="text/javascript">
             var info;
             var loginmng;
@@ -73,6 +73,9 @@
                 }
                 else{ }
             }
+            function searchProduct(){
+
+            }
         </script>
     </head>
     <body>
@@ -86,21 +89,9 @@
 
         <nav class="navbar navbar-dark">
             <div style="margin-top: 5%; margin-left: 40%;">
-                <input type="text" class="form-control" style="width: 100%;" placeholder="물품코드 입력">
-                <button type="button" class="btn btn-secondary" style="width: 100%; font-size: 10pt;">물품 검색</button><br><br>
-                <ul class="list-group">
-                    <li class="list-group-item record-list">
-                        000001 의자 융합과학관401호 2022-12-29 40EA
-                    </li>
-                    <li class="list-group-item record-list">
-                        000001 의자 융합과학관401호 2022-12-29 40EA
-                    </li>
-                    <li class="list-group-item record-list">
-                        000003 의자 융합과학관401호 2022-12-29 40EA
-                    </li>
-                    <li class="list-group-item record-list">
-                        000004 의자 융합과학관401호 2022-12-29 40EA
-                    </li>
+                <input type="text" id="insert_code" class="form-control" style="width: 100%;" placeholder="물품코드 입력">
+                <button type="button" class="btn btn-secondary" style="width: 100%; font-size: 10pt;" onclick="search_item()">물품 검색</button><br><br>
+                <ul class="list-group" id="item_list">
                 </ul>
             </div>
         </nav>

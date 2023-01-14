@@ -22,6 +22,8 @@
                     document.getElementById("login_btn").href = "src/login.html";
                     document.getElementById("search_btn").href="src/login.html";
                     document.getElementById("insert_btn").href="src/login.html";
+                    document.getElementById("mid_search_btn").href="src/login.html";
+                    document.getElementById("mid_insert_btn").href="src/login.html";
                 }
                 else
                 {
@@ -32,6 +34,8 @@
                     document.getElementById("login_btn").href = "index.html";
                     document.getElementById("search_btn").href="src/search.html";
                     document.getElementById("insert_btn").href="src/insert.html";
+                    document.getElementById("mid_search_btn").href="src/search.html";
+                    document.getElementById("mid_insert_btn").href="src/insert.html";
                     let x = document.getElementById("hi_name");
                     x.innerText=department + "\n" + name + "님 반갑습니다"; 
                 }
@@ -46,7 +50,6 @@
                     };
                     // Json Object를 저장하기
                     localStorage.setItem("cast", JSON.stringify(cast));
-                    location.href = "/";
                 }
                 else{
                     var cast = {
@@ -56,7 +59,6 @@
                     };
                     // Json Object를 저장하기
                     localStorage.setItem("cast", JSON.stringify(cast));
-                    location.href = "/";
                 }
             }
             function loginBtnFunc(){
@@ -86,8 +88,8 @@
 
         <nav class="navbar navbar-dark">
             <div style="margin-top: 5%; margin-left: 43%; padding-bottom: 20%;">
-                <a id="search_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">조회</button></a>
-                <a id="insert_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">등록</button></a>
+                <a id="mid_search_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">조회</button></a>
+                <a id="mid_insert_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">등록</button></a>
             </div>
         </nav>
 
