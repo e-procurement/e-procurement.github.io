@@ -79,6 +79,7 @@ function search_item(){
             if(obj[i]['code'] == code.value)
             {
                 var plusUl = document.createElement('li');
+                plusUl.style.color = 'white';
                 plusUl.innerHTML =  "<li>"+ obj[i]['code'] + " " + obj[i]['p_name'] + " " + obj[i]['position'] + " " + obj[i]['date'] + " " + obj[i]['EA']+" </li>";
                 document.getElementById('item_list').appendChild(plusUl);
                 cnt++;
