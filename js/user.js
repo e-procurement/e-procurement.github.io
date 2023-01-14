@@ -33,7 +33,7 @@ function login(){
                 
                 // Json Object를 저장하기
                 localStorage.setItem("cast", JSON.stringify(cast));
-                location.href = "login_index.html";
+                location.href = "../index.html";
                 break;
             }
             if(i == obj.length-1)

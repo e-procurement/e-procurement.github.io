@@ -5,19 +5,89 @@
         <title>DJU전자조달시스템</title>
         <link href="dist/css/yuri.css" rel="stylesheet">
         <link href="css/_css.css" rel="stylesheet">
+        <script type="text/javascript">
+            var info;
+            var loginmng;
+            var name;
+            var department;
+            window.addEventListener('DOMContentLoaded', function()
+            {
+                info = JSON.parse(localStorage.getItem("cast"));
+                if(!info['loginmng'])
+                {
+                    loginmng = false;
+                    name = "";
+                    department = "";
+                    document.getElementById("login_btn").innerText = "로그인";
+                    document.getElementById("login_btn").href = "src/login.html";
+                    document.getElementById("search_btn").href="src/login.html";
+                    document.getElementById("insert_btn").href="src/login.html";
+                }
+                else
+                {
+                    loginmng = true;
+                    name = info['name'];
+                    department = info['department'];
+                    document.getElementById("login_btn").innerText = "로그아웃";
+                    document.getElementById("login_btn").href = "index.html";
+                    document.getElementById("search_btn").href="src/search.html";
+                    document.getElementById("insert_btn").href="src/insert.html";
+                    let x = document.getElementById("hi_name");
+                    x.innerText=department + "\n" + name + "님 반갑습니다"; 
+                }
+            });
+            function changePage(){
+                if(!info['loginmng'])
+                {
+                    var cast = {
+                    "name" : "",
+                    "department" : "",
+                    "loginmng" : false
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                    location.href = "/";
+                }
+                else{
+                    var cast = {
+                    "name" : name,
+                    "department" : department,
+                    "loginmng" : true
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                    location.href = "/";
+                }
+            }
+            function loginBtnFunc(){
+                if(info['loginmng'])
+                {
+                    var cast = {
+                    "name" : "",
+                    "department" : "",
+                    "loginmng" : false
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                    location.href = "index.html";
+                }
+                else{ }
+            }
+        </script>
     </head>
     <body>
         <div class="navbar navbar-primary none-dark-color">
-            <a href="index.html"><img src="resources/logo.png" alt="" style="width: 50%;"></a>
-            <a href="src/login.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;">조회</a>
-            <a href="src/login.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;">등록</a>
-            <a href="src/login.html" style="height: 5%; margin-left: 19%; color: black;">로그인</a>
+            <a href="index.html"><img src="resources/logo.png" alt="" style="width: 50%;" onclick="javascript:changePage()"></a>
+            <a id="search_btn" href="src/login.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;" onclick="javascript:changePage()">조회</a>
+            <a id="insert_btn" href="src/login.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;" onclick="javascript:changePage()">등록</a>
+            <p id="hi_name" style="margin-left: 10%; color: black;"></p>
+            <a id="login_btn" href="src/login.html" style="height: 5%; margin-left: 10%; color: black;" onclick="javascript:loginBtnFunc()">로그인</a>
         </div>
 
         <nav class="navbar navbar-dark">
             <div style="margin-top: 5%; margin-left: 43%; padding-bottom: 20%;">
-                <a href="src/login.html"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">조회</button></a>
-                <a href="src/login.html"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">등록</button></a>
+                <a id="search_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">조회</button></a>
+                <a id="insert_btn" href="src/login.html" onclick="javascript:changePage()"><button type="button" class="btn btn-secondary" style="width: 100%; height: 150%; font-size: 25pt;">등록</button></a>
             </div>
         </nav>
 

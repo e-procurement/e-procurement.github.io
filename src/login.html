@@ -7,13 +7,81 @@
         <link href="../dist/css/yuri.css" rel="stylesheet">
         <link href="../css/_css.css" rel="stylesheet">
         <script src="../js/user.js"></script>
+        <script type="text/javascript">
+            var info;
+            var loginmng;
+            var name;
+            var department;
+            window.addEventListener('DOMContentLoaded', function()
+            {
+                info = JSON.parse(localStorage.getItem("cast"));
+                if(!info['loginmng'])
+                {
+                    loginmng = false;
+                    name = "";
+                    department = "";
+                    document.getElementById("login_btn").innerText = "로그인";
+                    document.getElementById("login_btn").href = "login.html";
+                    document.getElementById("search_btn").href="login.html";
+                    document.getElementById("insert_btn").href="login.html";
+                }
+                else
+                {
+                    loginmng = true;
+                    name = info['name'];
+                    department = info['department'];
+                    document.getElementById("login_btn").innerText = "로그아웃";
+                    document.getElementById("login_btn").href = "../index.html";
+                    document.getElementById("search_btn").href="search.html";
+                    document.getElementById("insert_btn").href="insert.html";
+                    let x = document.getElementById("hi_name");
+                    x.innerText=department + "\n" + name + "님 반갑습니다"; 
+                }
+            });
+            function changePage(){
+                if(!info['loginmng'])
+                {
+                    var cast = {
+                    "name" : "",
+                    "department" : "",
+                    "loginmng" : false
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                }
+                else{
+                    var cast = {
+                    "name" : name,
+                    "department" : department,
+                    "loginmng" : true
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                }
+            }
+            function loginBtnFunc(){
+                if(info['loginmng'])
+                {
+                    var cast = {
+                    "name" : "",
+                    "department" : "",
+                    "loginmng" : false
+                    };
+                    // Json Object를 저장하기
+                    localStorage.setItem("cast", JSON.stringify(cast));
+                    location.href = "../index.html";
+                }
+                else{ }
+            }
+        </script>
     </head>
     <body>
         <div class="navbar navbar-primary none-dark-color">
-            <a href="../index.html"><img src="../resources/logo.png" alt="" style="width: 50%;"></a>
-            <a href="login.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;">조회</a>
-            <a href="login.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;">등록</a>
-            <a href="login.html" style="height: 5%; margin-left: 19%; color: black;">로그인</a>
+            <a href="../index.html"><img src="../resources/logo.png" alt="" style="width: 50%;" onclick="javascript:changePage()"></a>
+            <a id="search_btn" href="login.html" style="width: 10%; height: 5%; margin-left: 5%; font-size: 25pt; color: black;" onclick="javascript:changePage()">조회</a>
+            <a id="insert_btn" href="login.html" style="width: 10%; height: 5%; margin-left: 10%; font-size: 25pt; color: black;" onclick="javascript:changePage()">등록</a>
+            <p id="hi_name" style="margin-left: 10%; color: black;"></p>
+            <a id="login_btn" href="login.html" style="height: 5%; margin-left: 10%; color: black;" onclick="javascript:loginBtnFunc()">로그인</a>
         </div>
 
         <nav class="navbar navbar-dark" style="padding: 10%;">
